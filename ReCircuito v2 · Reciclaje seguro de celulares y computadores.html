@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ReCircuito · Tu celular o computador nunca termina en un basural</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F6F4;--surface:#fff;--ink:#0D2B2E;--muted:#4B6467;--line:#D3E0DC;--teal:#0B7A75;--on:#fff;--amber:#F5B301;--red:#D64545;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1A1C;--surface:#13282B;--ink:#E8F3F1;--muted:#9DB8B5;--line:#24403F;--teal:#3CC4BB;--on:#06201F}}
+:root[data-theme="dark"]{--bg:#0C1A1C;--surface:#13282B;--ink:#E8F3F1;--muted:#9DB8B5;--line:#24403F;--teal:#3CC4BB;--on:#06201F}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}*{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.45 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",sans-serif;line-height:1.05;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,5vw,2.8rem);margin-bottom:1.4rem}h3{font-size:1.3rem}p{margin:0}
+.wrap{max-width:1060px;margin:0 auto;padding:0 1.25rem}section{padding:3rem 0}
+.m{color:var(--muted)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:3.4rem}
+.logo{font:800 1.2rem "Bricolage Grotesque";color:var(--ink);text-decoration:none}.logo b{color:var(--teal)}
+nav a.l{color:var(--muted);text-decoration:none;margin-left:1rem;font-size:.95rem}
+@media(max-width:640px){nav a.l:nth-child(n+3){display:none}}
+.hero{padding:2.5rem 0 3rem}.hg{display:grid;grid-template-columns:1.1fr 1fr;gap:1.5rem;align-items:center}
+@media(max-width:780px){.hg{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.3rem,6.5vw,4.3rem);font-weight:800}.hero h1 em{font-style:normal;color:var(--teal)}
+.lead{font-size:1.3rem;margin:1rem 0 1.5rem;max-width:34ch}
+.btn{display:inline-block;background:var(--teal);color:var(--on);font:700 1rem "DM Sans";padding:.85rem 1.5rem;border-radius:999px;border:0;text-decoration:none;cursor:pointer}
+.btn.o{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.badge{background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:.4rem .9rem;font-weight:700;font-size:.92rem}
+svg.art{width:100%;height:auto;display:block}.hero svg.art{animation:bob 3.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:1rem 1rem 1.25rem;overflow:hidden}
+.card .art{background:color-mix(in srgb,var(--teal) 9%,var(--surface));border-radius:14px;margin-bottom:.8rem}
+.card h3{margin-bottom:.25rem}.card p{color:var(--muted)}
+.n{display:inline-grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--amber);color:#1b1500;font-weight:800;font-size:.9rem;margin-right:.4rem}
+.promise{background:var(--ink);color:var(--bg)}.promise .card{background:color-mix(in srgb,var(--bg) 9%,transparent);border-color:color-mix(in srgb,var(--bg) 25%,transparent)}
+.promise .card p{color:color-mix(in srgb,var(--bg) 78%,transparent)}.promise h2,.promise h3{color:var(--bg)}
+.promise .card .art{background:color-mix(in srgb,var(--bg) 92%,transparent)}
+.promise .big{font:800 clamp(1.3rem,3vw,1.7rem) "Bricolage Grotesque";max-width:28ch;margin:-.6rem 0 1.5rem}.promise .big u{text-decoration-color:var(--amber);text-underline-offset:4px;text-decoration-thickness:4px}
+.chipcard .row{display:flex;gap:.5rem;align-items:center;margin-top:.7rem;flex-wrap:wrap}
+.tag{font-weight:700;color:var(--muted)}.tag.ok{color:var(--teal)}
+.broken .l{transform:translate(-14px,8px) rotate(-12deg)}.broken .r{transform:translate(14px,14px) rotate(12deg)}
+.half{transition:transform .7s cubic-bezier(.6,0,.3,1);transform-box:fill-box;transform-origin:center}
+.trace{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:center}@media(max-width:760px){.trace{grid-template-columns:1fr}}
+.code{display:inline-block;font:700 1.1rem ui-monospace,monospace;background:var(--surface);border:1.5px dashed var(--teal);border-radius:10px;padding:.4rem .8rem;margin:.6rem 0 1rem}
+ol.st{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+ol.st li{display:flex;gap:.7rem;align-items:center;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:.65rem .9rem;font-weight:500;opacity:.55;transition:.3s}
+ol.st li.on{opacity:1;border-color:var(--teal)}ol.st li .ck{margin-left:auto;font-weight:800;color:var(--teal)}
+.ev{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(235px,1fr))}
+.ev .card{display:flex;gap:.9rem;align-items:flex-start}.ev .ic{font-size:2.2rem;line-height:1}
+.ev small{display:block;color:var(--teal);font-weight:700;margin-bottom:.15rem}
+.cert{background:var(--surface);border:2px solid var(--teal);border-radius:16px;padding:1.2rem 1.4rem;position:relative}
+.cert h3{margin-bottom:.6rem}.cert p{padding:.35rem 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:1rem}
+.cert .ej{position:absolute;top:.8rem;right:1rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;color:var(--amber);border:2px solid var(--amber);padding:.1rem .5rem;border-radius:6px;transform:rotate(4deg)}
+.ally{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:1rem}
+.ally div{border:2px dashed var(--line);border-radius:14px;padding:.9rem;text-align:center;font-weight:700;font-size:.95rem}.ally span{display:block;font-size:2rem}
+.pill{display:flex;gap:.7rem;align-items:center;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:.9rem 1rem;font-weight:700}.pill span{font-size:1.8rem}
+.finder{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:1.2rem;align-items:center}
+@media(max-width:700px){.finder{grid-template-columns:1fr}}
+select{width:100%;font:500 1.05rem "DM Sans";padding:.8rem;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);margin:.4rem 0 .8rem}
+label{font-weight:700}.res{border-left:5px solid var(--amber);padding-left:1rem}.res b{font:800 1.8rem "Bricolage Grotesque";display:block;line-height:1.1}
+footer{border-top:1px solid var(--line);padding:1.8rem 0 3rem;color:var(--muted);font-size:.9rem}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.3,1)}.rv.in{opacity:1;transform:none}
+.card{transition:opacity .6s,transform .35s,box-shadow .25s}.card:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+.card:hover .art{transform:scale(1.05) rotate(-1.5deg)}.card .art{transition:transform .3s}
+svg.art text{animation:fl 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+svg.art text:nth-of-type(odd){animation-delay:-1.4s}svg.art text:nth-of-type(3n){animation-duration:2.2s}
+@keyframes fl{50%{transform:translateY(-6px) rotate(6deg)}}
+.mq{overflow:hidden;background:var(--teal);color:var(--on);padding:.6rem 0;font-size:1.6rem;white-space:nowrap}
+.mq div{display:inline-block;animation:mq 22s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+.stats{display:flex;gap:1.6rem;margin-top:1.4rem;flex-wrap:wrap}.stats b{display:block;font:800 2.4rem "Bricolage Grotesque";color:var(--teal);line-height:1}.stats span{font-size:.9rem;color:var(--muted)}
+.pill{transition:transform .25s}.pill:hover{transform:scale(1.04)}.pill span{display:inline-block;animation:jmp 1.8s ease-in-out infinite}@keyframes jmp{40%{transform:translateY(-8px) scale(1.15)}}
+.vanbox{overflow:hidden;border-radius:14px;background:color-mix(in srgb,var(--teal) 9%,var(--surface))}.vanbox .art{animation:drive 5s ease-in-out infinite alternate}@keyframes drive{from{transform:translateX(-22%)}to{transform:translateX(22%)}}
+.vanbox svg.art text{animation:none}
+.res{animation:pop .45s}@keyframes pop{from{opacity:0;transform:translateX(16px)}}
+.res .big{font-size:3.2rem;line-height:1;display:block;margin-bottom:.3rem}.res .btn{margin-top:.7rem;padding:.55rem 1.1rem}
+.step-on{animation:pop .4s}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top">Re<b>Circuito</b></a><div><a class="l" href="#promesa">Promesa</a><a class="l" href="#como">Cómo funciona</a><a class="l" href="#respaldo">Respaldo</a><a class="l" href="#punto">Tu punto</a></div></div></nav>
+
+<header class="hero" id="top"><div class="wrap hg">
+<div>
+  <h1>Tu celular o computador viejo <em>nunca</em> terminará en un basural.</h1>
+  <p class="lead">No vendemos nada. Prometemos reciclarlo de forma <b>responsable, segura y confiable</b>.</p>
+  <a class="btn" href="#promesa">Ver nuestra garantía</a> <a class="btn o" href="#punto">Mi punto de entrega</a>
+  <div class="badges"><span class="badge">📱 Celulares</span><span class="badge">💻 Computadores</span><span class="badge">📄 Con certificado</span></div>
+  <div class="stats"><div><b data-n="2">0</b><span>visitas por semana</span></div><div><b data-n="52">0</b><span>comunas</span></div><div><b data-n="0">0</b><span>basurales</span></div></div>
+</div>
+<div data-art="hero"></div>
+</div></header>
+
+<div class="mq" aria-hidden="true"><div>📱 💻 🔋 🔧 ♻️ ✅ 🛡️ 🌎 📱 💻 🔋 🔧 ♻️ ✅ 🛡️ 🌎 📱 💻 🔋 🔧 ♻️ ✅ 🛡️ 🌎 📱 💻 🔋 🔧 ♻️ ✅ 🛡️ 🌎 </div></div>
+<section class="promise" id="promesa"><div class="wrap">
+  <h2>Nuestra garantía</h2>
+  <p class="big">Si nos entregas tu celular o computador, <u>tienes 3 garantías.</u></p>
+  <div class="grid">
+    <div class="card"><div data-art="landfill"></div><h3><span class="n">1</span>Cero basurales</h3><p>Ninguna parte se bota.</p></div>
+    <div class="card"><div data-art="export"></div><h3><span class="n">2</span>Cero exportación</h3><p>No se envía a otros países.</p></div>
+    <div class="card" id="chipcard"><div data-art="data"></div><h3><span class="n">3</span>Datos destruidos</h3><p>Lo ves tú. Con certificado.</p>
+      <div class="row"><button class="btn o" id="go" style="padding:.5rem 1rem">Destruir chip</button><span class="tag" id="tag">Datos guardados</span></div></div>
+  </div>
+</div></section>
+
+<section id="que"><div class="wrap">
+  <h2>Solo recibimos 2 cosas</h2>
+  <div class="grid">
+    <div class="card"><div data-art="phones"></div><h3>📱 Celulares</h3><p>Cualquier marca. Aunque no enciendan.</p></div>
+    <div class="card"><div data-art="laps"></div><h3>💻 Computadores</h3><p>Notebooks y PC de escritorio.</p></div>
+  </div>
+</div></section>
+
+<section id="como" style="padding-top:0"><div class="wrap">
+  <h2>Así lo hacemos</h2>
+  <div class="grid">
+    <div class="card"><div data-art="s1"></div><h3><span class="n">1</span>Lo entregas</h3><p>En tu comuna. 2 veces por semana.</p></div>
+    <div class="card"><div data-art="data"></div><h3><span class="n">2</span>Borramos tus datos</h3><p>Disco o chip destruido frente a ti.</p></div>
+    <div class="card"><div data-art="s3"></div><h3><span class="n">3</span>Lo desarmamos</h3><p>Separamos cada parte.</p></div>
+    <div class="card"><div data-art="s4"></div><h3><span class="n">4</span>Reciclaje autorizado</h3><p>Planta con permiso del Estado.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap trace">
+  <div>
+    <h2 style="margin-bottom:.6rem">Sigue tu aparato</h2>
+    <p class="m">Te damos un código. Ves cada etapa hasta el reciclaje.</p>
+    <span class="code">RC-0417 · ejemplo</span><br>
+    <button class="btn" id="next">Avanzar etapa</button>
+  </div>
+  <ol class="st" id="st"></ol>
+</div></section>
+
+<section id="respaldo" style="padding-top:0"><div class="wrap">
+  <h2>Con evidencia, no solo palabras</h2>
+  <div class="ev">
+    <div class="card"><div class="ic">🏛️</div><div><small>Ley chilena</small><h3>Ley REP 20.920</h3><p>Reciclaje según la ley.</p></div></div>
+    <div class="card"><div class="ic">🌍</div><div><small>Acuerdo mundial</small><h3>Convenio de Basilea</h3><p>Prohíbe enviar residuos tóxicos a países pobres.</p></div></div>
+    <div class="card"><div class="ic">🏭</div><div><small>Autorización</small><h3>Planta autorizada</h3><p>Con permiso de la Seremi de Salud.</p></div></div>
+    <div class="card"><div class="ic">📊</div><div><small>Reporte al Estado</small><h3>SINADER</h3><p>Declaramos cada residuo.</p></div></div>
+  </div>
+  <div class="trace" style="margin-top:1.5rem">
+    <div class="cert"><span class="ej">EJEMPLO</span><h3>Certificado ReCircuito</h3>
+      <p><span>Equipo</span><b>📱 Celular</b></p><p><span>Datos</span><b>✅ Destruidos</b></p><p><span>Destino</span><b>✅ Planta autorizada</b></p><p><span>Basural</span><b>✅ Ninguno</b></p></div>
+    <div><h3>Aliados</h3><p class="m">Alianzas por concretar</p>
+      <div class="ally"><div><span>🏢</span>Municipalidades</div><div><span>🏭</span>Planta autorizada</div><div><span>📱</span>Marca de celulares</div><div><span>🛒</span>Retail tecnológico</div></div></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>¿Y para ti?</h2>
+  <div class="grid">
+    <div class="pill"><span>📍</span>Cerca de tu casa</div>
+    <div class="pill"><span>🧹</span>Cajón libre</div><div class="pill"><span>🌎</span>Planeta más limpio</div>
+  </div>
+</div></section>
+
+<section id="punto" style="padding-top:0"><div class="wrap">
+  <h2>Encuentra tu punto</h2>
+  <div class="finder">
+    <div><label for="com">Tu comuna</label><select id="com"></select><div class="vanbox" data-art="van"></div></div>
+    <div class="res" id="res" aria-live="polite"></div>
+  </div>
+  <p class="m" style="font-size:.85rem;margin-top:.8rem">Un punto por comuna. Propuestos, por confirmar.</p>
+</div></section>
+<footer><div class="wrap">ReCircuito · Proyecto de innovación · Santiago de Chile</div></footer>
+
+<script>
+const bg='<circle cx="120" cy="92" r="76" fill="var(--amber)" opacity=".28"/>';
+const eyes=(x,y,c='var(--ink)')=>`<circle cx="${x-10}" cy="${y}" r="4.5" fill="${c}"/><circle cx="${x+10}" cy="${y}" r="4.5" fill="${c}"/><path d="M${x-9} ${y+12}q9 10 18 0" stroke="${c}" stroke-width="3.5" stroke-linecap="round" fill="none"/>`;
+const ph=(x,y,w=56,h=96)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" fill="var(--teal)"/><rect x="${x+5}" y="${y+8}" width="${w-10}" height="${h-16}" rx="8" fill="var(--surface)"/>`+eyes(x+w/2,y+h/2-6);
+const lp=(x,y)=>`<rect x="${x}" y="${y}" width="100" height="62" rx="7" fill="var(--ink)"/><rect x="${x+6}" y="${y+6}" width="88" height="50" rx="4" fill="var(--teal)"/>`+eyes(x+50,y+28,'#fff')+`<path d="M${x-8} ${y+66}h116l-9 11H${x+1}z" fill="var(--muted)"/>`;
+const em=(t,x,y,s=34)=>`<text x="${x}" y="${y}" font-size="${s}" text-anchor="middle">${t}</text>`;
+const bin=(x,y)=>`<rect x="${x}" y="${y}" width="70" height="80" rx="10" fill="var(--teal)"/><rect x="${x-7}" y="${y-10}" width="84" height="13" rx="6" fill="var(--ink)"/>`+eyes(x+35,y+30,'#fff')+em('♻️',x+35,y+72,24);
+const chip=`<g class="half l"><path d="M70 50h50l-10 40 14 20-16 30H70z" fill="var(--teal)"/></g><g class="half r"><path d="M120 50h50v90h-58l16-30-14-20z" fill="var(--ink)"/></g><path d="M56 70h14M56 100h14M56 128h14M170 70h14M170 100h14M170 128h14" stroke="var(--amber)" stroke-width="5" stroke-linecap="round"/>`;
+const S={
+hero:bg+ph(46,50)+lp(118,76)+em('♻️',160,52,48)+em('✨',44,44,24)+em('✨',216,120,22)+em('🛡️',100,160,28),
+landfill:bg+ph(28,56,50,86)+em('➡️',104,108)+bin(130,70)+em('✅',200,48,38)+em('🚫',40,40,28)+em('🗑️',60,170,20),
+export:bg+em('🚢',72,112,64)+em('🌍',170,106,64)+'<circle cx="120" cy="92" r="70" fill="none" stroke="var(--red)" stroke-width="9"/><path d="M71 43l98 98" stroke="var(--red)" stroke-width="9"/>',
+data:bg+chip+em('🔒',120,40,30)+em('👀',204,52,28),
+phones:bg+ph(36,56,46,80)+ph(96,40,56,98)+ph(168,60,40,70)+em('✨',200,34,24),
+laps:bg+lp(70,50)+em('🖥️',44,150,40)+em('✨',204,44,24),
+s1:bg+'<rect x="30" y="74" width="120" height="56" rx="10" fill="var(--teal)"/><path d="M150 90h32l24 22v18h-56z" fill="var(--teal)"/><path d="M158 96h20l14 16h-34z" fill="var(--surface)"/><circle cx="62" cy="134" r="14" fill="var(--ink)"/><circle cx="178" cy="134" r="14" fill="var(--ink)"/>'+em('♻️',90,116,30)+em('📍',190,60,38)+em('🧑',34,64,30),
+s3:bg+em('📱',100,118,64)+em('🔧',160,78)+em('🔩',60,148)+em('⚙️',178,148)+em('🛠️',50,70,30),
+s4:bg+bin(40,76)+em('🏭',170,120,60)+em('➡️',126,120,30)+em('🔋',200,50,26)+em('🪙',130,52,28),
+van:'<rect x="20" y="30" width="150" height="62" rx="10" fill="var(--teal)"/><path d="M170 48h34l26 26v18h-60z" fill="var(--teal)"/><path d="M178 54h22l16 20h-38z" fill="var(--surface)"/><circle cx="62" cy="96" r="16" fill="var(--ink)"/><circle cx="196" cy="96" r="16" fill="var(--ink)"/>'+em('♻️',95,76,32)+em('📍',220,40,26)};
+document.querySelectorAll('[data-art]').forEach(e=>{const v=e.dataset.art,box=v==='hero'?'0 0 240 180':v==='van'?'0 20 240 100':'0 0 240 180';e.innerHTML=`<svg class="art" viewBox="${box}" role="img" aria-label="Ilustración">${S[v]}</svg>`});
+
+document.getElementById('go').onclick=function(){const c=document.getElementById('chipcard'),t=document.getElementById('tag');const on=c.classList.toggle('broken');t.textContent=on?'✓ Datos destruidos':'Datos guardados';t.classList.toggle('ok',on);this.textContent=on?'Reiniciar':'Destruir chip'};
+
+const E=['📥 Recibido en tu comuna','🔒 Datos destruidos frente a ti','🔧 Desarmado por partes','🏭 Entregado a planta autorizada','📄 Certificado enviado'];
+let k=1;const st=document.getElementById('st');
+function rt(){st.innerHTML=E.map((t,i)=>`<li class="${i<k?'on':''}">${t}<span class="ck">${i<k?'✓':''}</span></li>`).join('')}
+rt();document.getElementById('next').onclick=function(){k=k>=E.length?1:k+1;rt();this.textContent=k>=E.length?'Reiniciar':'Avanzar etapa'};
+
+const D="Alhué:PA;Buin:PA;Calera de Tango:PA;Cerrillos:Parque Bicentenario de Cerrillos;Cerro Navia:M;Colina:PA;Conchalí:M;Curacaví:PA;El Bosque:PP;El Monte:PA;Estación Central:M;Huechuraba:Mall Plaza Norte;Independencia:M;Isla de Maipo:PA;La Cisterna:M;La Florida:Mall Plaza Vespucio;La Granja:PP;La Pintana:PP;La Reina:Parque Padre Hurtado;Lampa:PA;Las Condes:Parque Araucano;Lo Barnechea:PP;Lo Espejo:PP;Lo Prado:M;Macul:M;Maipú:Templo Votivo de Maipú;María Pinto:PA;Melipilla:PA;Ñuñoa:Plaza Ñuñoa;Padre Hurtado:PA;Paine:PA;Pedro Aguirre Cerda:M;Peñaflor:PA;Peñalolén:PP;Pirque:PA;Providencia:Parque Bustamante;Pudahuel:M;Puente Alto:Metro Plaza de Puente Alto;Quilicura:PP;Quinta Normal:Parque Quinta Normal;Recoleta:Metro Cerro Blanco;Renca:PP;San Bernardo:PA;San Joaquín:M;San José de Maipo:PA;San Miguel:M;San Pedro:PA;San Ramón:M;Santiago:Plaza de Armas de Santiago;Talagante:PA;Tiltil:PA;Vitacura:Parque Bicentenario de Vitacura".split(';').map(x=>{const[n,p]=x.split(':');return[n,p==='PA'?'Plaza de Armas de '+n:p==='M'?'Metro '+n:p==='PP'?'Plaza principal de '+n:p]});
+const P=[["Lunes","Jueves"],["Martes","Viernes"],["Miércoles","Sábado"]];
+const sel=document.getElementById('com'),res=document.getElementById('res');
+D.forEach((c,i)=>sel.add(new Option(c[0],i)));sel.value=D.findIndex(x=>x[0]==='Santiago');
+function r(){const i=+sel.value,p=P[i%3],pl=D[i][1],ic=/Metro/.test(pl)?'🚇':/Parque/.test(pl)?'🌳':/Mall/.test(pl)?'🛍️':'🏛️';
+res.style.animation='none';res.offsetHeight;res.style.animation='';
+res.innerHTML=`<span class="big">${ic}</span><b>${p[0]} y ${p[1]}</b><p class="m">10:00 a 18:00 h</p><p><b style="font:700 1.1rem 'DM Sans'">${pl}</b></p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(pl+', '+D[i][0]+', Chile')}">Ver mapa</a>`}
+sel.onchange=r;r();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.card,.pill,.cert,.ally div,.finder,h2').forEach((e,i)=>{e.classList.add('rv');e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)});
+document.querySelectorAll('[data-n]').forEach(b=>{const t=+b.dataset.n;let v=0;if(!t)return;const id=setInterval(()=>{v+=Math.ceil(t/20);if(v>=t){v=t;clearInterval(id)}b.textContent=v},60)});
+</script>
+</body>
+</html>
